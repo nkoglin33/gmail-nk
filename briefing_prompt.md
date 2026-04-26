@@ -77,25 +77,12 @@ EOF
 
 ---
 
-## STEP 4 — Send via webhook
+## STEP 4 — Create Gmail draft
 
-Run this Python script exactly as written using Bash:
-
-```bash
-python3 << 'EOF'
-import urllib.request, json
-from datetime import date
-months = ['January','February','March','April','May','June','July','August','September','October','November','December']
-days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
-today = date.today()
-datestr = f"{days[today.weekday()]}, {months[today.month-1]} {today.day}, {today.year}"
-subject = f"News & Intelligence Briefing \u2014 {datestr}"
-html = open('output.html').read()
-payload = json.dumps({'to': 'nickkoglin@regencycenters.com', 'subject': subject, 'html_body': html}).encode()
-req = urllib.request.Request('https://hook.us2.make.com/flw0dk1oz3h2otapazinij91ha551cos', data=payload, headers={'Content-Type': 'application/json'})
-resp = urllib.request.urlopen(req).read().decode()
-print('Sent:', subject, '|', resp)
-EOF
-```
+Call the Gmail MCP tool `mcp__claude_ai_Gmail__create_draft` with:
+- `to`: nickkoglin@regencycenters.com
+- `subject`: `News & Intelligence Briefing — DATE_HERE` (replace DATE_HERE with today's full date)
+- `body`: the full contents of output.html (read the file first)
+- `mimeType`: text/html
 
 Output a confirmation with the subject line and file sizes of each section file.
