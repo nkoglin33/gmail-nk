@@ -107,13 +107,18 @@ Close the REIT Universe section card with a KPI summary row:
 
 ---
 
-## STEP 3 — Send the email
+## STEP 3 — Write HTML to file
 
-Call `GMAIL_SEND_EMAIL` with:
-- `recipient_email`: nickkoglin@regencycenters.com
+Write the complete HTML email string to a file called `output.html` in the repo root using the Write tool. Do not output the HTML to the conversation — write it directly to the file only.
+
+---
+
+## STEP 4 — Send the email
+
+Read `output.html` using the Read tool, then call `mcp__claude_ai_Gmail__create_draft` with:
+- `to`: nickkoglin@regencycenters.com
 - `subject`: the subject line constructed in Step 2
-- `body`: the full HTML string from Step 2
-
-**Send directly. Do not create a draft.**
+- `body`: the full contents of output.html
+- `mimeType`: text/html
 
 After sending, output a plain-text confirmation showing the subject line and item count per category.
