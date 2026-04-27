@@ -55,11 +55,11 @@ Write these files to `/tmp/` one at a time:
 
 ## STEP 3 — Assemble and send
 
-Run this Python script using Bash:
+First, run this Python script using Bash to assemble the HTML and write the payload:
 
 ```bash
 python3 << 'EOF'
-import json, subprocess, datetime
+import json, datetime
 
 today = datetime.date.today()
 months = ['January','February','March','April','May','June','July','August','September','October','November','December']
@@ -69,51 +69,43 @@ subject = f"News & Intelligence Briefing — {datestr}"
 
 def sec(label, file):
     items = open(file).read()
-    return f'''<div style="background:#ffffff;border-left:4px solid #005568;margin:16px 0;padding:16px 20px;">
-<p style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#005568;margin:0 0 10px 0;">{label}</p>
-<ul style="margin:0;padding-left:18px;">{items}</ul></div>'''
+    return f'<div style="background:#ffffff;border-left:4px solid #005568;margin:16px 0;padding:16px 20px;"><p style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#005568;margin:0 0 10px 0;">{label}</p><ul style="margin:0;padding-left:18px;">{items}</ul></div>'
 
-html = f'''<!DOCTYPE html><html><body style="margin:0;padding:0;background-color:#F8F6F3;font-family:Arial,sans-serif;">
-<div style="max-width:680px;margin:0 auto;">
-<div style="background-color:#005568;color:#ffffff;padding:28px 32px;">
-<p style="font-family:Georgia,serif;font-size:22px;font-weight:normal;letter-spacing:2px;text-transform:uppercase;margin:0;">News &amp; Intelligence Briefing</p>
-<p style="font-size:12px;color:rgba(255,255,255,0.65);margin-top:6px;letter-spacing:1px;">{datestr}</p>
-</div>
-<div style="height:3px;background-color:#DC9529;"></div>
-<div style="padding:0 24px;">
-{sec("Macroeconomic", "/tmp/macro.html")}
-{sec("Geopolitical", "/tmp/geo.html")}
-{sec("U.S. News", "/tmp/us.html")}
-{sec("Chicago", "/tmp/chicago.html")}
-{sec("Midwest Real Estate", "/tmp/midwest.html")}
-{sec("Public REIT Universe", "/tmp/reit.html")}
-</div>
-<div style="background-color:#00304B;color:rgba(255,255,255,0.55);font-size:10px;padding:18px 32px;text-align:center;letter-spacing:1px;margin-top:24px;">
-Regency Centers &middot; Equity Research &amp; Intelligence &middot; Automated Daily Briefing &middot; {datestr}
-</div>
-</div></body></html>'''
+html = (
+    '<!DOCTYPE html><html><body style="margin:0;padding:0;background-color:#F8F6F3;font-family:Arial,sans-serif;">'
+    '<div style="max-width:680px;margin:0 auto;">'
+    '<div style="background-color:#005568;color:#ffffff;padding:28px 32px;">'
+    '<p style="font-family:Georgia,serif;font-size:22px;font-weight:normal;letter-spacing:2px;text-transform:uppercase;margin:0;">News &amp; Intelligence Briefing</p>'
+    f'<p style="font-size:12px;color:rgba(255,255,255,0.65);margin-top:6px;letter-spacing:1px;">{datestr}</p>'
+    '</div>'
+    '<div style="height:3px;background-color:#DC9529;"></div>'
+    '<div style="padding:0 24px;">'
+    + sec("Macroeconomic", "/tmp/macro.html")
+    + sec("Geopolitical", "/tmp/geo.html")
+    + sec("U.S. News", "/tmp/us.html")
+    + sec("Chicago", "/tmp/chicago.html")
+    + sec("Midwest Real Estate", "/tmp/midwest.html")
+    + sec("Public REIT Universe", "/tmp/reit.html")
+    + f'</div><div style="background-color:#00304B;color:rgba(255,255,255,0.55);font-size:10px;padding:18px 32px;text-align:center;letter-spacing:1px;margin-top:24px;">Regency Centers &middot; Equity Research &amp; Intelligence &middot; Automated Daily Briefing &middot; {datestr}</div></div></body></html>'
+)
 
-payload = json.dumps({
-    "api_key": "claude-email-send-2026",
-    "recipient": "nickkoglin@regencycenters.com",
-    "subject": subject,
-    "body": html
-})
-
-with open('/tmp/payload.json', 'w') as f:
-    f.write(payload)
-
-result = subprocess.run([
-    'curl', '-s', '-X', 'POST',
-    'https://hook.us2.make.com/iqv1fsrvsac5a7ap7bm2wkq8h3unkmo6',
-    '-H', 'Content-Type: application/json',
-    '--data-binary', '@/tmp/payload.json'
-], capture_output=True, text=True)
-
-print('Subject:', subject)
-print('Response:', result.stdout)
-print('Exit code:', result.returncode)
+with open('/tmp/subject.txt', 'w') as f:
+    f.write(subject)
+with open('/tmp/email_body.html', 'w') as f:
+    f.write(html)
+print('Assembled:', subject)
+print('HTML size:', len(html), 'bytes')
 EOF
 ```
 
-If the response is `Accepted` the email was sent. Output the subject line and item counts per section.
+Then use the WebFetch tool to POST to the Make.com webhook. Call WebFetch with:
+- URL: `https://hook.us2.make.com/iqv1fsrvsac5a7ap7bm2wkq8h3unkmo6`
+- Method: POST
+- Content-Type: application/json
+- Body: a JSON object with keys `api_key` (value: `claude-email-send-2026`), `recipient` (value: `nickkoglin@regencycenters.com`), `subject` (read from `/tmp/subject.txt`), `body` (read from `/tmp/email_body.html`)
+
+If WebFetch returns `Accepted` or a 200 response, the email was sent successfully.
+
+If WebFetch fails or is not allowed, fall back: call `mcp__claude_ai_Gmail__create_draft` with to=`nickkoglin@regencycenters.com`, subject from `/tmp/subject.txt`, body from `/tmp/email_body.html`, mimeType=`text/html`.
+
+Output the subject line and item counts per section regardless of which send method succeeded.
