@@ -44,7 +44,7 @@ Run ALL searches simultaneously. For each item capture: headline, 1-2 sentence s
 
 ## STEP 2 — Build the HTML email string
 
-Compose a complete HTML email using **inline CSS only** (no `<style>` blocks). Hold it as a variable — do not write it to a file.
+Compose a complete HTML email using **inline CSS only** (no `<style>` blocks). Max width 680px centered.
 
 **Design spec:**
 - Outer wrapper: `background-color:#F8F6F3; font-family:Arial,sans-serif; padding:24px 0`
@@ -63,7 +63,7 @@ Compose a complete HTML email using **inline CSS only** (no `<style>` blocks). H
 
 **Section order:** Macroeconomic · Geopolitical · U.S. News · Chicago · Midwest Real Estate · Public REIT Universe
 
-**Bullet format (use for every item):**
+**Bullet format:**
 ```html
 <li style="font-size:13px;line-height:1.65;color:#4B3C30;margin-bottom:9px;"><span style="font-weight:700;color:#00304B;">HEADLINE</span> — SUMMARY. <a href="URL" style="color:#E56D3D;text-decoration:none;">SOURCE →</a></li>
 ```
@@ -79,27 +79,43 @@ Close the REIT section with a KPI row — 4 cells in a flex div (`display:flex;g
 
 ---
 
-## STEP 3 — Send via Composio REST API
+## STEP 3 — Send via Make.com webhook
 
-Write the full HTML from Step 2 to a temp file `/tmp/email_body.html`, then run this bash command to send it via Composio:
+Write the full HTML from Step 2 to `/tmp/email_body.html`, then run this bash command:
 
 ```bash
-BODY=$(cat /tmp/email_body.html)
-curl -s -X POST "https://backend.composio.dev/api/v2/actions/GMAIL_SEND_EMAIL/execute" \
-  -H "x-api-key: ak_rdC0CHmE2SyLz8MaPdQi" \
-  -H "Content-Type: application/json" \
-  -d "{
-    \"input\": {
-      \"recipient_email\": \"nickkoglin@regencycenters.com\",
-      \"subject\": \"SUBJECT_LINE_HERE\",
-      \"body\": $(python3 -c 'import sys,json; print(json.dumps(open("/tmp/email_body.html").read()))')
-    },
-    \"entity_id\": \"user_x5bmrv\"
-  }"
+python3 << 'EOF'
+import json, subprocess, datetime
+
+today = datetime.date.today()
+months = ['January','February','March','April','May','June','July','August','September','October','November','December']
+days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday']
+datestr = f"{days[today.weekday()]}, {months[today.month-1]} {today.day}, {today.year}"
+subject = f"News & Intelligence Briefing — {datestr}"
+
+body = open('/tmp/email_body.html').read()
+
+payload = json.dumps({
+    "api_key": "claude-email-send-2026",
+    "recipient": "nickkoglin@regencycenters.com",
+    "subject": subject,
+    "body": body
+})
+
+with open('/tmp/payload.json', 'w') as f:
+    f.write(payload)
+
+result = subprocess.run([
+    'curl', '-s', '-X', 'POST',
+    'https://hook.us2.make.com/iqv1fsrvsac5a7ap7bm2wkq8h3unkmo6',
+    '-H', 'Content-Type: application/json',
+    '--data-binary', '@/tmp/payload.json'
+], capture_output=True, text=True)
+
+print('Status:', result.returncode)
+print('Response:', result.stdout)
+print('Subject:', subject)
+EOF
 ```
 
-Replace `SUBJECT_LINE_HERE` with the subject from Step 2.
-
-If the curl response contains `"successfull":true` or `"success":true` or an email ID, the send succeeded. Output a confirmation with the subject line and item count per section.
-
-If it fails, output the full curl response so the error is visible.
+If the response is `Accepted` or contains a success indicator, the email was sent. Output a confirmation with the subject line and item count per section. If it fails, print the full response.
