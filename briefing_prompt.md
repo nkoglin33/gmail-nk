@@ -53,13 +53,13 @@ Write these files to `/tmp/` one at a time:
 
 ---
 
-## STEP 3 — Assemble and send
+## STEP 3 — Assemble HTML and create Gmail draft
 
-Run this Python script using Bash:
+Run this Python script using Bash to assemble the full HTML:
 
 ```bash
 python3 << 'EOF'
-import json, subprocess, datetime
+import datetime
 
 today = datetime.date.today()
 months = ['January','February','March','April','May','June','July','August','September','October','November','December']
@@ -77,9 +77,7 @@ html = (
     '<div style="background-color:#005568;color:#ffffff;padding:28px 32px;">'
     '<p style="font-family:Georgia,serif;font-size:22px;font-weight:normal;letter-spacing:2px;text-transform:uppercase;margin:0;">News &amp; Intelligence Briefing</p>'
     f'<p style="font-size:12px;color:rgba(255,255,255,0.65);margin-top:6px;letter-spacing:1px;">{datestr}</p>'
-    '</div>'
-    '<div style="height:3px;background-color:#DC9529;"></div>'
-    '<div style="padding:0 24px;">'
+    '</div><div style="height:3px;background-color:#DC9529;"></div><div style="padding:0 24px;">'
     + sec("Macroeconomic", "/tmp/macro.html")
     + sec("Geopolitical", "/tmp/geo.html")
     + sec("U.S. News", "/tmp/us.html")
@@ -89,23 +87,19 @@ html = (
     + f'</div><div style="background-color:#00304B;color:rgba(255,255,255,0.55);font-size:10px;padding:18px 32px;text-align:center;letter-spacing:1px;margin-top:24px;">Regency Centers &middot; Equity Research &amp; Intelligence &middot; Automated Daily Briefing &middot; {datestr}</div></div></body></html>'
 )
 
-payload = json.dumps({"to": "nickkoglin@regencycenters.com", "subject": subject, "body": html})
-with open('/tmp/payload.json', 'w') as f:
-    f.write(payload)
-
-result = subprocess.run([
-    'curl', '-s', '-X', 'POST',
-    'https://hook.us2.make.com/iqv1fsrvsac5a7ap7bm2wkq8h3unkmo6',
-    '-H', 'x-make-apikey: claude-email-send-2026',
-    '-H', 'Content-Type: application/json',
-    '--data-binary', '@/tmp/payload.json'
-], capture_output=True, text=True)
-
-print('Subject:', subject)
-print('Response:', result.stdout)
-print('Stderr:', result.stderr)
-print('Exit code:', result.returncode)
+with open('/tmp/subject.txt', 'w') as f:
+    f.write(subject)
+with open('/tmp/email_body.html', 'w') as f:
+    f.write(html)
+print('SUBJECT:', subject)
+print('HTML_SIZE:', len(html))
 EOF
 ```
 
-A response of `Accepted` means the email was sent. Output the subject line and item counts per section.
+Then call `mcp__claude_ai_Gmail__create_draft` with:
+- `to`: `nickkoglin@regencycenters.com`
+- `subject`: contents of `/tmp/subject.txt`
+- `body`: contents of `/tmp/email_body.html`
+- `mimeType`: `text/html`
+
+Output the subject line, draft ID, and item counts per section.
