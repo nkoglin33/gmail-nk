@@ -55,11 +55,11 @@ Write these files to `/tmp/` one at a time:
 
 ## STEP 3 — Assemble and send
 
-First, run this Python script using Bash to assemble the HTML and write the payload:
+Run this Python script using Bash:
 
 ```bash
 python3 << 'EOF'
-import json, datetime
+import json, subprocess, datetime
 
 today = datetime.date.today()
 months = ['January','February','March','April','May','June','July','August','September','October','November','December']
@@ -89,23 +89,23 @@ html = (
     + f'</div><div style="background-color:#00304B;color:rgba(255,255,255,0.55);font-size:10px;padding:18px 32px;text-align:center;letter-spacing:1px;margin-top:24px;">Regency Centers &middot; Equity Research &amp; Intelligence &middot; Automated Daily Briefing &middot; {datestr}</div></div></body></html>'
 )
 
-with open('/tmp/subject.txt', 'w') as f:
-    f.write(subject)
-with open('/tmp/email_body.html', 'w') as f:
-    f.write(html)
-print('Assembled:', subject)
-print('HTML size:', len(html), 'bytes')
+payload = json.dumps({"to": "nickkoglin@regencycenters.com", "subject": subject, "body": html})
+with open('/tmp/payload.json', 'w') as f:
+    f.write(payload)
+
+result = subprocess.run([
+    'curl', '-s', '-X', 'POST',
+    'https://hook.us2.make.com/iqv1fsrvsac5a7ap7bm2wkq8h3unkmo6',
+    '-H', 'x-make-apikey: claude-email-send-2026',
+    '-H', 'Content-Type: application/json',
+    '--data-binary', '@/tmp/payload.json'
+], capture_output=True, text=True)
+
+print('Subject:', subject)
+print('Response:', result.stdout)
+print('Stderr:', result.stderr)
+print('Exit code:', result.returncode)
 EOF
 ```
 
-Then use the WebFetch tool to POST to the Make.com webhook. Call WebFetch with:
-- URL: `https://hook.us2.make.com/iqv1fsrvsac5a7ap7bm2wkq8h3unkmo6`
-- Method: POST
-- Content-Type: application/json
-- Body: a JSON object with keys `api_key` (value: `claude-email-send-2026`), `recipient` (value: `nickkoglin@regencycenters.com`), `subject` (read from `/tmp/subject.txt`), `body` (read from `/tmp/email_body.html`)
-
-If WebFetch returns `Accepted` or a 200 response, the email was sent successfully.
-
-If WebFetch fails or is not allowed, fall back: call `mcp__claude_ai_Gmail__create_draft` with to=`nickkoglin@regencycenters.com`, subject from `/tmp/subject.txt`, body from `/tmp/email_body.html`, mimeType=`text/html`.
-
-Output the subject line and item counts per section regardless of which send method succeeded.
+A response of `Accepted` means the email was sent. Output the subject line and item counts per section.
