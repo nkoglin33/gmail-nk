@@ -2,12 +2,15 @@
 <body style="margin:0;padding:0;background:#F8F6F3;font-family:Arial,sans-serif;">
 <div style="max-width:720px;margin:0 auto;background:#ffffff;padding:32px 36px;">
 
+<!-- INCOMPLETE-DATA BANNER (leave {{INCOMPLETE_BANNER}} empty when the self-check in the prompt passes) -->
+{{INCOMPLETE_BANNER}}
+
 <!-- HEADER -->
 <div style="text-align:center;margin-bottom:16px;">
 <div style="font-family:Georgia,serif;font-size:10pt;letter-spacing:3px;color:#DC9529;text-transform:uppercase;font-weight:600;">Equity Research · Weekly</div>
 <div style="font-family:Arial,sans-serif;font-size:10pt;color:#888;margin-top:4px;letter-spacing:2px;">WEEK ENDING {{WEEK_ENDING}}</div>
 <h1 style="font-family:Georgia,serif;font-size:22pt;color:#005568;text-align:center;margin:14px 0 4px 0;">Public Retail REIT Universe</h1>
-<div style="text-align:center;font-size:10pt;color:#888;margin-bottom:18px;">{{ISSUER_COUNT}} issuers · 5 segments · ~$285B aggregate market cap</div>
+<div style="text-align:center;font-size:10pt;color:#888;margin-bottom:18px;">{{ISSUER_COUNT}} actively-traded issuers &middot; 4 segments</div>
 </div>
 <div style="border-top:3px solid #DC9529;margin-bottom:20px;"></div>
 
@@ -20,7 +23,7 @@
 </div>
 
 <!-- SEGMENT PERFORMANCE -->
-<div style="font-family:Arial,sans-serif;font-size:9pt;font-weight:700;color:#005568;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">Segment Performance</div>
+<div style="font-family:Arial,sans-serif;font-size:9pt;font-weight:700;color:#005568;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">Segment Performance &nbsp;(5D / YTD / 1-Yr)</div>
 <table style="width:100%;border-collapse:collapse;margin-bottom:20px;">
 <tr>
 {{SEGMENT_TILES}}
@@ -29,21 +32,21 @@
 
 <!-- UNIVERSE HEATMAP -->
 <div style="font-family:Arial,sans-serif;font-size:9pt;font-weight:700;color:#005568;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">Universe Heatmap</div>
-<table style="width:100%;border-collapse:collapse;font-size:8.5pt;margin-bottom:20px;">
+<table style="width:100%;border-collapse:collapse;font-size:8.5pt;margin-bottom:10px;">
 <tr style="background:#005568;color:white;">
 <td style="padding:6px 8px;font-weight:700;">Issuer</td>
 <td style="padding:6px 8px;font-weight:700;text-align:center;">Ticker</td>
+<td style="padding:6px 8px;font-weight:700;text-align:center;">Price</td>
 <td style="padding:6px 8px;font-weight:700;text-align:center;">5D</td>
 <td style="padding:6px 8px;font-weight:700;text-align:center;">YTD</td>
-<td style="padding:6px 8px;font-weight:700;text-align:center;">P/NAV</td>
-<td style="padding:6px 8px;font-weight:700;text-align:center;">Cap Rate</td>
-<td style="padding:6px 8px;font-weight:700;text-align:center;">ND/EBITDA</td>
-<td style="padding:6px 8px;font-weight:700;text-align:center;">SS NOI</td>
-<td style="padding:6px 8px;font-weight:700;text-align:center;">Lease Sprd</td>
+<td style="padding:6px 8px;font-weight:700;text-align:center;">1-Yr</td>
 <td style="padding:6px 8px;font-weight:700;text-align:center;">Health</td>
+<td style="padding:6px 8px;font-weight:700;text-align:center;">Next Report</td>
+<td style="padding:6px 8px;font-weight:700;text-align:center;">Link</td>
 </tr>
 {{HEATMAP_ROWS}}
 </table>
+<div style="font-size:7.5pt;color:#888;margin-bottom:20px;">{{PRICE_ASOF_NOTE}}</div>
 
 <!-- SEGMENT NARRATIVES -->
 <div style="font-family:Arial,sans-serif;font-size:9pt;font-weight:700;color:#005568;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">Segment Cross-Section</div>
@@ -54,6 +57,47 @@
 <div style="font-family:Arial,sans-serif;font-size:9pt;font-weight:700;color:#E56D3D;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px;">Regency Centers — Focus Issuer This Week</div>
 <div style="font-size:9.5pt;color:#4B3C30;line-height:1.6;">{{REGENCY_FOCUS}}</div>
 </div>
+
+<!-- RENT SPREAD SCOREBOARD -->
+<div style="font-family:Arial,sans-serif;font-size:9pt;font-weight:700;color:#005568;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;">Rent Spread Scoreboard &nbsp;—&nbsp; Renewal Cash Spreads, Ranked</div>
+<div style="font-size:8.5pt;color:#888;margin-bottom:8px;">{{RENT_SPREAD_ASOF_NOTE}}</div>
+<table style="width:100%;border-collapse:collapse;font-size:8.5pt;margin-bottom:8px;">
+<tr style="background:#005568;color:white;">
+<td style="padding:6px 8px;font-weight:700;text-align:center;">Rank</td>
+<td style="padding:6px 8px;font-weight:700;">Company</td>
+<td style="padding:6px 8px;font-weight:700;text-align:center;">Renewal Cash Spread</td>
+<td style="padding:6px 8px;font-weight:700;">Detail</td>
+</tr>
+{{RENT_SPREAD_ROWS}}
+</table>
+<div style="font-size:8.5pt;color:#4B3C30;background:#F8F6F3;border-left:4px solid #DC9529;padding:10px 14px;margin-bottom:20px;line-height:1.5;">{{RENT_SPREAD_GAP_CALLOUT}}</div>
+
+<!-- PEER RESULTS DETAIL -->
+<div style="font-family:Arial,sans-serif;font-size:9pt;font-weight:700;color:#005568;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px;">Peer Results Detail &nbsp;—&nbsp; REG + 8 Direct Shopping-Center Peers</div>
+<div style="font-size:8.5pt;color:#888;margin-bottom:8px;">{{PEER_DETAIL_ASOF_NOTE}}</div>
+<table style="width:100%;border-collapse:collapse;font-size:8pt;margin-bottom:8px;">
+<tr style="background:#005568;color:white;">
+<td style="padding:6px 8px;font-weight:700;">Peer</td>
+<td style="padding:6px 8px;font-weight:700;text-align:center;">% Leased (Seq, YoY)</td>
+<td style="padding:6px 8px;font-weight:700;text-align:center;">Blended Cash Spread</td>
+<td style="padding:6px 8px;font-weight:700;text-align:center;">SP NOI</td>
+<td style="padding:6px 8px;font-weight:700;text-align:center;">Dividend ($/YoY%)</td>
+<td style="padding:6px 8px;font-weight:700;text-align:center;">FFO Guidance</td>
+<td style="padding:6px 8px;font-weight:700;text-align:center;">SP NOI Guidance</td>
+<td style="padding:6px 8px;font-weight:700;text-align:center;">Next Report</td>
+<td style="padding:6px 8px;font-weight:700;text-align:center;">Link</td>
+</tr>
+{{PEER_DETAIL_ROWS}}
+</table>
+<div style="font-size:7.5pt;color:#888;margin-bottom:20px;">{{PEER_DETAIL_FOOTNOTES}}</div>
+
+<!-- SOURCES & CONFIDENCE NOTES -->
+<div style="font-family:Arial,sans-serif;font-size:9pt;font-weight:700;color:#005568;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">Sources &amp; Confidence Notes</div>
+<div style="font-size:9pt;color:#4B3C30;line-height:1.6;margin-bottom:20px;">{{SOURCES_CONFIDENCE}}</div>
+
+<!-- QUARTERLY SYNOPSIS -->
+<div style="font-family:Arial,sans-serif;font-size:9pt;font-weight:700;color:#005568;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;">Quarterly Synopsis</div>
+<div style="font-size:9pt;color:#4B3C30;line-height:1.6;margin-bottom:20px;">{{QUARTERLY_SYNOPSIS}}</div>
 
 <!-- FOOTER -->
 <div style="border-top:3px solid #DC9529;margin-top:24px;padding-top:14px;text-align:center;font-size:8pt;color:#888;letter-spacing:1px;">
