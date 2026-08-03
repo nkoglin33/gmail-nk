@@ -1,0 +1,11 @@
+Price methodology: Yahoo Finance chart API (primary method per standing prompt) was unreachable this cycle — the environment proxy returned policy-denial 403 on all 19 tickers after retry. All price data sourced via web search against financial data aggregators (Yahoo Finance page references, StockTitan, MarketBeat, and financial news wires). As-of dates are heterogeneous across names as noted below.
+
+CONFIRMED July 31, 2026 closes (from search results explicitly citing that date): BRX $31.50, FRT $124.09, KIM $25.51, KRG $28.94, PECO $42.44, IVT $35.20, ADC $77.77, SPG $229.37.
+
+NEAR-CONFIRMED (within 1-2 trading days of July 31): REG ~$81.20 (intraday July 29 post-earnings $81.11, estimated July 31 close); CURB ~$31.90 (opened $31.55 on July 28 post-earnings, estimated week-end close); AKR ~$22.63 (recent reference); MAC ~$25.59 (July 20 reference); CBL ~$58.40 (July 26 reference); SKT ~$40.90 (estimated near 52-week high $41.53); NNN ~$46.50 (prior-week reference); EPRT ~$28.50 (estimated); BNL ~$22.10 (recovered from post-Q2 earnings drop to $21.49); GTY ~$35.10 (near 52-week high); UE ~$23.60 (estimated, Q2 not yet reported).
+
+YTD returns (vs. Dec 31, 2025 close) and 1-Year returns (vs. July 31, 2025 close) are estimated from available web sources and financial news references; Dec 31, 2025 and July 31, 2025 closing prices were not directly retrievable this cycle. These figures are directionally correct based on confirmed current prices and news-reported performance context, but should be verified against a certified data source (Yahoo Finance, Bloomberg, FactSet) before board-level use.
+
+5D returns estimated based on confirmed post-earnings moves for reporting companies and sector context for non-reporting names.
+
+CURB 1-year data limited: CURB spun off from SITE Centers in October 2024; 1-year return reflects approximately 9-month partial-year period.
