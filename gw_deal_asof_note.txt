@@ -1,1 +1,1 @@
-Seed cycle (8/6/26 pilot data) &mdash; all 6 grocers researched fresh.
+Production cycle 1 (8/6/26). Seed data compiled same date via pilot build; this run adds confirmed openings/closures from 8/1–8/6/26. All 6 grocers updated with fresh search results; unchanged items carried forward from seed. Next full refresh: 8/11/26.
