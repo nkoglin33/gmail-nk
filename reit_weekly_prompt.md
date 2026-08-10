@@ -52,6 +52,8 @@ Compute, using one consistent as-of-date methodology across all 19 (do not mix d
 
 This direct API pull is fast, complete, and verifiable — web-search aggregators produce gaps and inconsistent as-of dates across names and are NOT an acceptable substitute for this step. If the API is unreachable for a ticker after retry, say so explicitly in `{{PRICE_ASOF_NOTE}}` (name the ticker and what's missing) — never leave a heatmap cell as a bare, unexplained "—".
 
+**If the API is unreachable for ALL tickers (e.g., the run environment's proxy returns 403 — this happened on the 8/10/26 cloud run): do NOT substitute another price source.** In particular, HTML files under `briefings/` are NOT a data source — they came from a retired local pipeline with estimated returns, and treating one as "confirmed" data is exactly the failure that shipped wrong numbers on 8/10/26 (FRT shown +2.1% for a week it actually fell 4.4%). Web-search return figures and prices marked "~" are equally unacceptable. Instead: carry forward last week's committed heatmap prices labeled by their as-of date, set the Step 3 `{{INCOMPLETE_BANNER}}` naming price data as stale, and append " (Incomplete)" to the subject. A visibly price-stale report is acceptable; invented or second-hand returns are not.
+
 ### 1b. Earnings calendar
 
 For each of the 19 issuers, confirm the next reporting date (or "Reported <date>, call <date/time>" if already out this cycle) and the link to their most recent quarterly press release. Use company IR pages / press-release aggregators (Businesswire, PR Newswire, Nasdaq press releases, company IR sites).
