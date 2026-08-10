@@ -113,15 +113,27 @@ One `<tr>` per issuer, 9 columns (Issuer, Ticker, Price, 5D, YTD, 1-Yr, Health, 
 <td style="padding:5px 8px;"><font face="arial, sans-serif" color="#4B3C30">Issuer Name</font></td>
 <td style="padding:5px 8px;text-align:center;font-weight:700;"><font face="arial, sans-serif" color="#005568">TICKER</font></td>
 <td style="padding:5px 8px;text-align:center;"><font face="arial, sans-serif" color="#4B3C30">$XX.XX</font></td>
-<td style="padding:5px 8px;text-align:center;font-weight:700;"><font face="arial, sans-serif" color="GREEN_OR_RED">+X.X%</font></td>
-<td style="padding:5px 8px;text-align:center;"><font face="arial, sans-serif" color="#4B3C30">+X.X%</font></td>
-<td style="padding:5px 8px;text-align:center;"><font face="arial, sans-serif" color="#4B3C30">+X.X%</font></td>
+<td bgcolor="FILL" style="padding:5px 8px;text-align:center;font-weight:700;background-color:FILL;color:SIGN;"><font face="arial, sans-serif" color="SIGN">+X.X%</font></td>
+<td bgcolor="FILL" style="padding:5px 8px;text-align:center;background-color:FILL;color:SIGN;"><font face="arial, sans-serif" color="SIGN">+X.X%</font></td>
+<td bgcolor="FILL" style="padding:5px 8px;text-align:center;background-color:FILL;color:SIGN;"><font face="arial, sans-serif" color="SIGN">+X.X%</font></td>
 <td style="padding:5px 8px;text-align:center;font-weight:700;"><font face="arial, sans-serif" color="HEALTH_COLOR">● H/S/X</font></td>
 <td style="padding:5px 8px;text-align:center;"><font face="arial, sans-serif" color="#4B3C30">Mon DD, YYYY</font></td>
 <td style="padding:5px 8px;text-align:center;"><a href="URL" style="color:#005568;">Link</a></td>
 </tr>
 ```
 Health colors: H=`#2D7A3E`, S=`#DC9529`, X=`#B83A2A`. All 19 rows must have real Price/5D/YTD/1-Yr from Step 1a — if one is genuinely missing after retry, write the ticker into `{{PRICE_ASOF_NOTE}}` rather than leaving the cell blank with no explanation.
+
+**QUINTILE CELL SHADING — Nick-approved 8/10/26, mandatory.** The 5D, YTD, and 1-Yr cells (and ONLY those three columns) each carry a quintile color fill, ranked **per column** across all 19 issuers (highest return = best):
+
+| Bucket | Fill (`FILL`) | Meaning |
+|---|---|---|
+| Top quintile | `#c8e6c9` | best ~4 names in that column this week |
+| Second | `#f1f8e9` | |
+| Middle | `#fff9c4` | cream |
+| Fourth | `#ffebee` | |
+| Bottom quintile | `#ffcdd2` | worst ~4 names |
+
+Bucket rule (use exactly this, in the Step 4 assembly script or when writing rows): sort the column's 19 values descending; a value at 0-based rank `r` gets bucket `min(4, r*5//19)`. The fill goes on BOTH the `bgcolor` attribute and the `background-color` style (armor rules — the attribute is what survives the Gmail sanitizer). `SIGN` = text color by sign of the value: `#1E7A34` positive / `#B83A2A` negative / `#4B3C30` zero. The scale is relative within the week — in an all-negative week the least-bad name is still green-filled while its text stays red; that is intended. The static color-key line explaining this lives in the template below the table; do not remove it and do not add a second one.
 
 ### File: `rw_narratives.html`
 One block per segment (4, not 5):
@@ -188,6 +200,7 @@ Before running Step 4, verify:
 4. No cell anywhere is a bare "—" without a corresponding explanation in `rw_sources.html`.
 5. Any "TODAY"/date-relative phrasing matches today's actual date.
 6. Armor rules followed: no `background:` shorthand anywhere, no styled `<span>`s, every data-row `<tr>` has a `bgcolor` attribute, and td text is wrapped in `<font face="arial, sans-serif" color="…">`.
+7. Quintile shading present: `rw_heatmap.html` contains exactly 57 `<td bgcolor="#…">` fills drawn from the 5-color palette (`#c8e6c9`/`#f1f8e9`/`#fff9c4`/`#ffebee`/`#ffcdd2`) — 19 rows × the 5D/YTD/1-Yr columns, no other column shaded.
 
 If ALL checks pass, set `{{INCOMPLETE_BANNER}}` to an empty string.
 
