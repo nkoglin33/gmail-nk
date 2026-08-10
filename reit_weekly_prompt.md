@@ -210,8 +210,10 @@ days_since_friday = (today.weekday() - 4) % 7
 if days_since_friday == 0:
     days_since_friday = 7
 week_end = today - timedelta(days=days_since_friday)
+week_start = week_end - timedelta(days=4)  # Monday of the covered week — used in the subject line
 months = ['January','February','March','April','May','June','July','August','September','October','November','December']
 week_ending_str = f"{months[week_end.month-1]} {week_end.day}, {week_end.year}"
+week_of_str = f"{months[week_start.month-1]} {week_start.day}, {week_start.year}"
 
 files = ['rw_read','rw_segments','rw_heatmap','rw_narratives','rw_regency',
          'rw_rent_spread','rw_peer_detail','rw_sources','rw_synopsis']
@@ -268,7 +270,7 @@ assert 'background:' not in html.replace('background-color:', ''), 'armor failed
 # --- end armor safety net ---
 
 open('rw_output.html', 'w').write(html)
-print('Done. Week ending:', week_ending_str, '| Incomplete banner set:', bool(banner))
+print('Done. Week ending:', week_ending_str, '| Week of (for subject):', week_of_str, '| Incomplete banner set:', bool(banner))
 print('Armor stats: bgcolor attrs =', html.count('bgcolor'), '| font tags =', html.count('<font'))
 EOF
 ```
@@ -281,7 +283,7 @@ EOF
 
 Read `rw_output.html`, then call `mcp__claude_ai_Gmail__create_draft` with:
 - `to`: nickkoglin@regencycenters.com
-- `subject`: `REIT Weekly — Week Ending WEEK_ENDING_DATE` (use the actual date; append " (Incomplete)" to the subject if the Step 3 banner was set)
+- `subject`: `REIT Weekly — Week of WEEK_OF_DATE` (Nick's standing instruction 8/10/26: the subject says "Week of", not "Week Ending". WEEK_OF_DATE is the **Monday** that starts the covered week — the Step 4 script computes and prints it as `week_of_str`. Append " (Incomplete)" to the subject if the Step 3 banner was set.)
 - `body`: full contents of rw_output.html
 - `mimeType`: text/html
 
