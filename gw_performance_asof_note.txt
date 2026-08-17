@@ -1,1 +1,9 @@
-Production cycle 2 (8/10/26). All performance figures carried forward from cycle 1 (8/6/26) — no new quarterly releases this cycle. Freshly updated in cycle 1/seed: Walmart (Q1 FY27, 5/21/26), Kroger (Q1 FY26, stock as of 8/5/26), Publix (Q2 2026, employee stock 8/1/26 reset), Amazon Physical Stores (Q2 2026, 7/30/26 call). Trader Joe's and Wegmans: no public financials; third-party estimates and ACSI data unchanged. Next due: Walmart Q2 FY27 8/20/26 (10 days out); Kroger Q2 FY26 ~Sept 2026; Amazon Q3 ~late Oct 2026; Publix Q3 ~Nov 2026.
+Updated only when a grocer reports a new quarter; unchanged rows carried forward and labeled by source quarter.
+
+STATUS AS OF 8/17/26:
+- Walmart (WMT): Q1 FY27 figures (reported 5/21/26) — Q2 FY27 earnings due THIS THURSDAY Aug 20, 2026; row will be stale for one more day. Update next cycle.
+- Kroger (KR): Q1 FY26 figures (carried) — Q2 FY26 earnings call confirmed Sept 11, 2026 (Q2 ended 8/15/26). KR stock price carried from 8/5/26 ($56.68).
+- Publix: Q2 2026 figures (reported ~early Aug 2026) — next release ~Nov 2026 (Q3).
+- Whole Foods / Amazon: Amazon Q2 2026 Physical Stores segment ($5.794B, reported 7/30/26) — Amazon Q3 call expected ~late Oct 2026.
+- Trader Joe's: Third-party estimates (est. sales/sq ft ~$2,000-2,100) — no new ACSI or dunnhumby RPI edition found this cycle.
+- Wegmans: Third-party estimates ($12.5B-$15.2B revenue range) + ACSI 78 (2026 survey) — no newer third-party survey found this cycle.
