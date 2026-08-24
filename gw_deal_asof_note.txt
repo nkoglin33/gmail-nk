@@ -1,9 +1,9 @@
-Last ~10 days (since 8/10/26) + live pipeline; unchanged items carried forward from prior cycles.
+Last ~10 days (since 8/17/26) + live pipeline; unchanged items carried forward from prior cycles.
 
-FRESHNESS CHECK (all grocers refreshed in cycle 2 on 8/10/26; none yet at the 3-week stale threshold):
-- Walmart: Carried forward (no new openings/closings 8/11-8/17). Pipeline unchanged.
-- Kroger: Freshly updated — Bloomingdale IL + Alpharetta GA closures confirmed, Eaton OH opening added, Q2 FY26 earnings call confirmed Sept 11.
-- Publix: Freshly updated — Coral Springs FL + Winter Garden FL confirmed opened 8/17.
-- Whole Foods: Freshly updated — Eatontown NJ (7/29) added to Recent, Sarasota FL added to Pipeline, Amazon Orland Park concept noted in RE Relevance.
-- Trader Joe's: Carried forward (no new confirmed openings 8/11-8/17; pipeline unchanged).
-- Wegmans: Freshly updated — Pittsburgh groundbreaking 8/13 confirmed and moved to Recent.
+FRESHNESS CHECK (cycle 3 run on 8/24/26; none yet at the 3-week stale threshold):
+- Walmart: Carried forward (no new store openings/closings 8/18-8/24). Pipeline unchanged. RE Relevance updated with Q2 FY27 comp data.
+- Kroger: Freshly updated — Aug 22 closure wave confirmed (Glenview West IL, Charlottesville VA, Gassaway WV all closed). Eaton OH opening 8/29 upcoming.
+- Publix: Carried forward (no new confirmed openings 8/18-8/24; August cluster complete).
+- Whole Foods: Freshly updated — Montgomery Township NJ moved from Pipeline to Recent (opened 8/21). Elk Grove CA (9/16) and San Diego (9/23) added to Pipeline.
+- Trader Joe's: Freshly updated — Merriam KS (opens 9/2) added to Pipeline.
+- Wegmans: Carried forward with one correction — Charlotte Ballantyne now correctly noted as 5th NC store, not first (prior report error).
