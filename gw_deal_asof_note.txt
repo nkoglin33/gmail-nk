@@ -1,9 +1,9 @@
-Last ~10 days (since 8/17/26) + live pipeline; unchanged items carried forward from prior cycles.
+Last ~7 days (since 8/24/26) + live pipeline; unchanged items carried forward from prior cycles.
 
-FRESHNESS CHECK (cycle 3 run on 8/24/26; none yet at the 3-week stale threshold):
-- Walmart: Carried forward (no new store openings/closings 8/18-8/24). Pipeline unchanged. RE Relevance updated with Q2 FY27 comp data.
-- Kroger: Freshly updated — Aug 22 closure wave confirmed (Glenview West IL, Charlottesville VA, Gassaway WV all closed). Eaton OH opening 8/29 upcoming.
-- Publix: Carried forward (no new confirmed openings 8/18-8/24; August cluster complete).
-- Whole Foods: Freshly updated — Montgomery Township NJ moved from Pipeline to Recent (opened 8/21). Elk Grove CA (9/16) and San Diego (9/23) added to Pipeline.
-- Trader Joe's: Freshly updated — Merriam KS (opens 9/2) added to Pipeline.
-- Wegmans: Carried forward with one correction — Charlotte Ballantyne now correctly noted as 5th NC store, not first (prior report error).
+FRESHNESS CHECK (cycle 4 run on 8/31/26; none at the 3-week stale threshold):
+- Walmart: Carried forward (no new store openings/closings 8/25-8/31). Pipeline unchanged.
+- Kroger: Freshly updated — Eaton OH ($19M, 1707 N. Barron St.) opened 8/29/26. Delaware OH Marketplace (early fall 2026) and Canal Winchester OH Marketplace (late fall 2026) added to pipeline as part of $112M Ohio investment.
+- Publix: Freshly updated — Elizabethtown KY (9/23/26) and Apopka FL (9/24/26) confirmed with opening dates. Pipeline updated accordingly.
+- Whole Foods: Freshly updated — Daily Shop Murray Hill NYC (Third Avenue) announced 8/24/26. Elk Grove CA (9/16) and San Diego (9/23) still in pipeline.
+- Trader Joe's: Carried forward — Merriam KS (opens 9/2/26) remains in pipeline; no new openings confirmed in 8/25-8/31 window.
+- Wegmans: Carried forward — Charlotte Ballantyne (10/14/26) and Pittsburgh Cranberry Twp (fall 2027) unchanged.
