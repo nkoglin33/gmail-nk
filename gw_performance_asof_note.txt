@@ -1,9 +1,9 @@
 Updated only when a grocer reports a new quarter; unchanged rows carried forward and labeled by source quarter.
 
-STATUS AS OF 8/31/26:
-- Walmart (WMT): Q2 FY27 figures carried from 8/20/26 (most recent quarter) — next report Q3 FY27 ~mid-Nov 2026.
-- Kroger (KR): Q1 FY26 figures carried — Q2 FY26 earnings call confirmed Sept. 11, 2026 (Q2 ended 8/15/26). KR stock price carried from 8/5/26 (~$56-57); not verified live this cycle.
-- Publix: Q2 2026 figures carried (reported ~early Aug 2026) — next release ~Nov 2026 (Q3). Employee stock $19.60 as of 8/1/26; no new reset found.
+STATUS AS OF 9/7/26:
+- Walmart (WMT): Q2 FY27 figures carried from 8/20/26 (most recent quarter) — next report Q3 FY27 ~Nov 19, 2026.
+- Kroger (KR): Q1 FY26 figures carried — Q2 FY26 earnings call confirmed Sept. 11, 2026 (this Thursday; Q2 ended 8/15/26). KR stock price carried from 8/31/26 (~$56-57); not verified live this cycle.
+- Publix: Q2 2026 figures carried (~early Aug 2026 release) — next release ~Nov 2026 (Q3). Employee stock $19.60 as of 8/1/26; no new reset found.
 - Whole Foods / Amazon: Amazon Q2 2026 Physical Stores segment ($5.794B, reported 7/30/26) — Amazon Q3 call expected ~late Oct 2026.
-- Trader Joe's: Third-party estimates (est. sales/sq ft ~$2,000-2,100) — no new ACSI or dunnhumby RPI edition found this cycle. Store count updated to ~663+ (8/31/26).
+- Trader Joe's: Third-party estimates (est. sales/sq ft ~$2,000-2,100) — no new ACSI or dunnhumby RPI edition found this cycle. Store count updated to ~664+ (9/7/26) to reflect Merriam KS opening.
 - Wegmans: Third-party estimates ($12.5B-$15.2B revenue range) + ACSI 78 (2026 survey) — no newer third-party survey found this cycle.
