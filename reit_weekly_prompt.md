@@ -40,19 +40,49 @@ If Nick tells you to add/remove a name or merge/split a segment in the future, t
 
 ## STEP 1 — Research (run all searches/fetches in parallel where possible)
 
-### 1a. Price data — Yahoo Finance chart API is the PRIMARY method, not web search
+### 1a. Price data — read `rw_prices.json` FIRST, Yahoo direct pull is the backup
 
-For all 19 tickers, pull price history directly:
-`https://query1.finance.yahoo.com/v8/finance/chart/{TICKER}`
+**Primary source: `rw_prices.json` in the repo root.** A GitHub Actions workflow
+(`.github/workflows/reit-prices.yml`, runs 10:30 and 11:40 UTC every Monday — before this
+routine fires) pulls all 19 tickers from the Yahoo Finance chart API on a network that can
+actually reach it and commits the result. This run's sandbox proxy refuses CONNECT to
+`query1.finance.yahoo.com` ("Tunnel connection failed: 403 Forbidden") and has done so every
+Monday since 8/10/26 — so the file, not your own HTTP call, is the expected path.
 
-Compute, using one consistent as-of-date methodology across all 19 (do not mix dates):
-- **5D** = most recent close vs. close 5 trading sessions prior
-- **YTD** = most recent close vs. prior-year 12/31 close
-- **1-Yr** = most recent close vs. close ~1 year prior (same calendar date)
+Read it and validate before using it:
+1. `covered_friday` **must equal the Friday of the week this report covers** (the most recent
+   Friday before today). If it is older, the snapshot is stale — treat as a miss.
+2. `complete` must be `true` and `tickers` must hold all 19 names. Anything listed in `errors`
+   is a per-ticker gap, not a whole-file failure.
+3. Each ticker gives `price`, `as_of`, `ret_5d_pct`, `ret_ytd_pct`, `ret_1yr_pct` — already on
+   one consistent methodology (Price = close on `as_of`; 5D = vs. the close one week earlier;
+   YTD = vs. the prior-year final close; 1-Yr = vs. the close ~365 days earlier). Use those
+   numbers as-is; do not re-derive or round them differently.
 
-This direct API pull is fast, complete, and verifiable — web-search aggregators produce gaps and inconsistent as-of dates across names and are NOT an acceptable substitute for this step. If the API is unreachable for a ticker after retry, say so explicitly in `{{PRICE_ASOF_NOTE}}` (name the ticker and what's missing) — never leave a heatmap cell as a bare, unexplained "—".
+If the file is fresh and complete, this is a **full-confidence** price cycle — no banner, no
+"(Incomplete)" subject. `{{PRICE_ASOF_NOTE}}` should say the prices are Yahoo Finance chart API
+closes as of `as_of`, collected by the scheduled Actions snapshot because the run sandbox blocks
+the API directly.
 
-**If the API is unreachable for ALL tickers (e.g., the run environment's proxy returns 403 — this happened on the 8/10/26 cloud run): do NOT substitute another price source.** In particular, HTML files under `briefings/` are NOT a data source — they came from a retired local pipeline with estimated returns, and treating one as "confirmed" data is exactly the failure that shipped wrong numbers on 8/10/26 (FRT shown +2.1% for a week it actually fell 4.4%). Web-search return figures and prices marked "~" are equally unacceptable. Instead: carry forward last week's committed heatmap prices labeled by their as-of date, set the Step 3 `{{INCOMPLETE_BANNER}}` naming price data as stale, and append " (Incomplete)" to the subject. A visibly price-stale report is acceptable; invented or second-hand returns are not.
+**Backup: the direct API pull.** If `rw_prices.json` is missing, stale, or has per-ticker errors,
+try it yourself for the affected tickers — it costs one attempt and works in any environment that
+isn't proxied:
+`https://query1.finance.yahoo.com/v8/finance/chart/{TICKER}` (fall back to `query2`), same
+methodology as above, one consistent as-of date across all 19 — do not mix dates. Web-search
+aggregators produce gaps and inconsistent as-of dates and are NOT an acceptable substitute. If a
+ticker is still missing after that, name it explicitly in `{{PRICE_ASOF_NOTE}}` — never leave a
+heatmap cell as a bare, unexplained "—".
+
+**If BOTH the file and the direct pull fail for ALL tickers: do NOT substitute another price
+source.** In particular, HTML files under `briefings/` are NOT a data source — they came from a
+retired local pipeline with estimated returns, and treating one as "confirmed" data is exactly the
+failure that shipped wrong numbers on 8/10/26 (FRT shown +2.1% for a week it actually fell 4.4%).
+Web-search return figures and prices marked "~" are equally unacceptable. Instead: carry forward
+last week's committed heatmap prices labeled by their as-of date, set the Step 3
+`{{INCOMPLETE_BANNER}}` naming price data as stale **and stating that the Actions price snapshot
+did not land** (so the failure is traceable to the workflow, not just the proxy), and append
+" (Incomplete)" to the subject. A visibly price-stale report is acceptable; invented or
+second-hand returns are not.
 
 ### 1b. Earnings calendar
 
@@ -200,7 +230,8 @@ Before running Step 4, verify:
 4. No cell anywhere is a bare "—" without a corresponding explanation in `rw_sources.html`.
 5. Any "TODAY"/date-relative phrasing matches today's actual date.
 6. Armor rules followed: no `background:` shorthand anywhere, no styled `<span>`s, every data-row `<tr>` has a `bgcolor` attribute, and td text is wrapped in `<font face="arial, sans-serif" color="…">`.
-7. Quintile shading present: `rw_heatmap.html` contains exactly 57 `<td bgcolor="#…">` fills drawn from the 5-color palette (`#c8e6c9`/`#f1f8e9`/`#fff9c4`/`#ffebee`/`#ffcdd2`) — 19 rows × the 5D/YTD/1-Yr columns, no other column shaded.
+7. **Price freshness:** every heatmap Price/5D/YTD/1-Yr figure traces to a source dated the covered Friday — `rw_prices.json` with a matching `covered_friday`, or your own direct pull from the same week. Carried-forward prices from an earlier week FAIL this check and require the banner.
+8. Quintile shading present: `rw_heatmap.html` contains exactly 57 `<td bgcolor="#…">` fills drawn from the 5-color palette (`#c8e6c9`/`#f1f8e9`/`#fff9c4`/`#ffebee`/`#ffcdd2`) — 19 rows × the 5D/YTD/1-Yr columns, no other column shaded.
 
 If ALL checks pass, set `{{INCOMPLETE_BANNER}}` to an empty string.
 
@@ -254,7 +285,7 @@ html = html.replace('{{INCOMPLETE_BANNER}}', banner)
 html = html.replace('{{THIS_WEEKS_READ}}', content['rw_read'])
 html = html.replace('{{SEGMENT_TILES}}', content['rw_segments'])
 html = html.replace('{{HEATMAP_ROWS}}', content['rw_heatmap'])
-html = html.replace('{{PRICE_ASOF_NOTE}}', read_or('price_asof_note.txt', 'Price/5D/YTD/1-Yr refreshed via Yahoo Finance chart API, one consistent methodology across all 19 issuers.'))
+html = html.replace('{{PRICE_ASOF_NOTE}}', read_or('price_asof_note.txt', 'Price/5D/YTD/1-Yr from the Yahoo Finance chart API via the scheduled rw_prices.json snapshot, one consistent methodology across all 19 issuers.'))
 html = html.replace('{{SEGMENT_NARRATIVES}}', content['rw_narratives'])
 html = html.replace('{{REGENCY_FOCUS}}', content['rw_regency'])
 html = html.replace('{{RENT_SPREAD_ASOF_NOTE}}', read_or('rent_spread_asof_note.txt', ''))
@@ -309,3 +340,5 @@ Output a confirmation with the subject line, file sizes, and whether the incompl
 ## STEP 6 — Commit
 
 Commit all changed files (`rw_*.html`, the `*_note.txt`/`*_callout.txt` scratch files, `rw_output.html`) to the repo with a message summarizing the week's key data points — this repo is the persistence layer for "carry forward last week's figure" in Steps 1c/1d, so committing every run matters, not just for audit trail.
+
+Do NOT modify or regenerate `rw_prices.json` — it is written by the Actions snapshot workflow, not by this run. If `git push` is rejected because that workflow committed while you were running, `git pull --rebase` and push again rather than force-pushing over it.
