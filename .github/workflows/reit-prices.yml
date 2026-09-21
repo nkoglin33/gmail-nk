@@ -1,0 +1,45 @@
+name: REIT Weekly price snapshot
+
+# Publishes rw_prices.json (Price / 5D / YTD / 1-Yr for the 19-issuer universe)
+# BEFORE the "REIT Weekly Universe Report" routine fires at 12:00 UTC Mondays.
+# The routine's sandbox proxy refuses CONNECT to query1.finance.yahoo.com
+# (403 Forbidden, every Monday since 2026-08-10); an Actions runner can reach it,
+# so the data is collected here and handed to the routine through the repo.
+
+on:
+  schedule:
+    - cron: '30 10 * * 1'   # 10:30 UTC Mon — 90 min before the routine
+    - cron: '40 11 * * 1'   # 11:40 UTC Mon — retry/refresh if the first run was delayed
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: reit-prices
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Fetch prices from Yahoo Finance
+        run: python scripts/fetch_reit_prices.py
+
+      - name: Commit rw_prices.json
+        run: |
+          git config user.name  "reit-prices-bot"
+          git config user.email "actions@github.com"
+          if git diff --quiet -- rw_prices.json; then
+            echo "rw_prices.json unchanged — nothing to commit"
+            exit 0
+          fi
+          git add rw_prices.json
+          git commit -m "REIT price snapshot $(date -u +%Y-%m-%d) (Yahoo chart API via Actions)"
+          git push
