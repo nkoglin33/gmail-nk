@@ -36,7 +36,7 @@ jobs:
         run: |
           git config user.name  "reit-prices-bot"
           git config user.email "actions@github.com"
-          if git diff --quiet -- rw_prices.json; then
+          if [ -z "$(git status --porcelain -- rw_prices.json)" ]; then
             echo "rw_prices.json unchanged — nothing to commit"
             exit 0
           fi
