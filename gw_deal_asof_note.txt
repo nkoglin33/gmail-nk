@@ -1,9 +1,9 @@
-Last ~7 days (since 9/7/26) + live pipeline; unchanged items carried forward from prior cycles.
+Last ~7 days (since 9/14/26) + live pipeline; unchanged items carried forward from prior cycles.
 
-FRESHNESS CHECK (cycle 6 run on 9/14/26):
-- Walmart: Carried forward (no new store openings/closings 9/8-9/14). Pipeline unchanged.
-- Kroger: Freshly updated — Q2 FY26 earnings results (9/11/26): adj EPS $1.09, ID sales +0.2%, FY guidance cut to 0.2-0.8%. Owensboro KY Marketplace (fall 2026) added to pipeline; East 4th St. closure added. RE Relevance updated.
-- Publix: Carried forward — Elizabethtown KY (9/23/26) and Apopka FL (9/24/26) pipeline timing updated to "Opening next week."
-- Whole Foods: Carried forward — Elk Grove CA (9/16) and San Diego (9/23) timing updated to "2 days" and "9 days." Daily Shop Murray Hill address corrected to 509 Third Ave.
-- Trader Joe's: Minor update — Jersey City NJ (55 Hudson St, 2027) added to pipeline. No new openings in 9/8-9/14 window.
-- Wegmans: Carried forward — Charlotte Ballantyne (10/14/26) unchanged. No new activity.
+FRESHNESS CHECK (cycle 7 run on 9/21/26):
+- Walmart: Carried forward (no new store openings/closings 9/15-9/21). Sumter SC NM reopened post-remodel 9/4/26 added to Recent. Pipeline unchanged.
+- Kroger: Carried forward — Flint Township MI (9/30/26) closure timing updated to "imminent." Owensboro Marketplace still "fall 2026" (no specific date). Q2 FY26 results (9/11/26) already current from prior cycle. Kroger Houston closures found in search were 2025 events (not 2026 new closures).
+- Publix: FRESHLY UPDATED — Elizabethtown KY (9/23/26) and Apopka FL (9/24/26) moved from Pipeline to Recent ("opening this week"). NEW pipeline additions: Owensboro KY (Gateway Commons, 10/3/26) and Florence KY (Farmview Commons, 58,817 sq ft, 10/7/26). RE Relevance updated with competitive Owensboro dynamic.
+- Whole Foods: FRESHLY UPDATED — Elk Grove CA (9/16/26) moved from Pipeline to Recent (confirmed opened). San Diego (9/23/26) updated to "opening in 2 days." Daily Shop updated to 8+ open.
+- Trader Joe's: FRESHLY UPDATED — Lafayette LA (1710 Camellia Blvd, 9/17/26) confirmed opened; added to Recent. Pipeline updated (Lafayette removed from upcoming list). Store count updated ~665+.
+- Wegmans: Carried forward — Charlotte Ballantyne (10/14/26) countdown updated to 23 days. No new activity.
