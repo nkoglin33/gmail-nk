@@ -342,3 +342,9 @@ Output a confirmation with the subject line, file sizes, and whether the incompl
 Commit all changed files (`rw_*.html`, the `*_note.txt`/`*_callout.txt` scratch files, `rw_output.html`) to the repo with a message summarizing the week's key data points — this repo is the persistence layer for "carry forward last week's figure" in Steps 1c/1d, so committing every run matters, not just for audit trail.
 
 Do NOT modify or regenerate `rw_prices.json` — it is written by the Actions snapshot workflow, not by this run. If `git push` is rejected because that workflow committed while you were running, `git pull --rebase` and push again rather than force-pushing over it.
+
+---
+
+## ONE-TIME NOTE FOR THIS RUN ONLY (2026-09-28) — remove after this run
+
+This is a corrected re-run of the Week of September 21, 2026 issue. The morning run shipped with stale September 18 prices because the Actions price snapshot had not landed; a fresh `rw_prices.json` (covered_friday 2026-09-25, complete, all 19 tickers) is now committed. Rebuild the full report for the week of September 21–25, 2026 using that snapshot: refresh the heatmap prices/5D/YTD/1-Yr (5D = Sep 18→25), clear the INCOMPLETE banner and any stale-price language, keep every other section's content current for the covered week, and append " (Corrected — supersedes earlier send)" to the Gmail draft subject.
