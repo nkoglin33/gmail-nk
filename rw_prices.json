@@ -1,180 +1,180 @@
 {
  "schema": "rw_prices/1",
- "generated_at_utc": "2026-09-21T21:17:56Z",
+ "generated_at_utc": "2026-09-28T15:34:37Z",
  "generated_by": "GitHub Actions workflow reit-prices.yml (Yahoo Finance chart API)",
- "covered_friday": "2026-09-18",
+ "covered_friday": "2026-09-25",
  "methodology": "Price = close on as_of (last trading day <= covered Friday); 5D = vs close one week earlier; YTD = vs last close of prior calendar year; 1-Yr = vs close ~365 days earlier. Source: Yahoo Finance chart API v8, daily closes.",
  "tickers": {
   "CURB": {
-   "price": 28.33,
-   "as_of": "2026-09-18",
-   "ret_5d_pct": -3.38,
-   "ret_ytd_pct": 22.06,
-   "ret_1yr_pct": 24.8,
+   "price": 28.46,
+   "as_of": "2026-09-25",
+   "ret_5d_pct": 0.46,
+   "ret_ytd_pct": 22.62,
+   "ret_1yr_pct": 27.17,
    "ytd_base_date": "2025-12-31",
-   "yr_base_date": "2025-09-18"
+   "yr_base_date": "2025-09-25"
   },
   "REG": {
-   "price": 72.95,
-   "as_of": "2026-09-18",
-   "ret_5d_pct": -2.24,
-   "ret_ytd_pct": 5.68,
-   "ret_1yr_pct": 3.73,
+   "price": 73.23,
+   "as_of": "2026-09-25",
+   "ret_5d_pct": 0.38,
+   "ret_ytd_pct": 6.08,
+   "ret_1yr_pct": 3.04,
    "ytd_base_date": "2025-12-31",
-   "yr_base_date": "2025-09-18"
+   "yr_base_date": "2025-09-25"
   },
   "FRT": {
-   "price": 110.91,
-   "as_of": "2026-09-18",
-   "ret_5d_pct": -3.02,
-   "ret_ytd_pct": 10.03,
-   "ret_1yr_pct": 10.67,
+   "price": 110.52,
+   "as_of": "2026-09-25",
+   "ret_5d_pct": -0.35,
+   "ret_ytd_pct": 9.64,
+   "ret_1yr_pct": 11.53,
    "ytd_base_date": "2025-12-31",
-   "yr_base_date": "2025-09-18"
+   "yr_base_date": "2025-09-25"
   },
   "BRX": {
-   "price": 28.03,
-   "as_of": "2026-09-18",
-   "ret_5d_pct": -2.44,
-   "ret_ytd_pct": 6.9,
-   "ret_1yr_pct": 0.68,
+   "price": 28.07,
+   "as_of": "2026-09-25",
+   "ret_5d_pct": 0.14,
+   "ret_ytd_pct": 7.06,
+   "ret_1yr_pct": 3.05,
    "ytd_base_date": "2025-12-31",
-   "yr_base_date": "2025-09-18"
+   "yr_base_date": "2025-09-25"
   },
   "KIM": {
-   "price": 22.53,
-   "as_of": "2026-09-18",
-   "ret_5d_pct": -2.85,
-   "ret_ytd_pct": 11.15,
-   "ret_1yr_pct": 1.62,
+   "price": 22.44,
+   "as_of": "2026-09-25",
+   "ret_5d_pct": -0.4,
+   "ret_ytd_pct": 10.71,
+   "ret_1yr_pct": 4.47,
    "ytd_base_date": "2025-12-31",
-   "yr_base_date": "2025-09-18"
+   "yr_base_date": "2025-09-25"
   },
   "KRG": {
-   "price": 25.43,
-   "as_of": "2026-09-18",
-   "ret_5d_pct": -1.78,
-   "ret_ytd_pct": 6.09,
-   "ret_1yr_pct": 14.39,
+   "price": 24.78,
+   "as_of": "2026-09-25",
+   "ret_5d_pct": -2.56,
+   "ret_ytd_pct": 3.38,
+   "ret_1yr_pct": 12.64,
    "ytd_base_date": "2025-12-31",
-   "yr_base_date": "2025-09-18"
+   "yr_base_date": "2025-09-25"
   },
   "PECO": {
-   "price": 37.16,
-   "as_of": "2026-09-18",
-   "ret_5d_pct": -3.25,
-   "ret_ytd_pct": 4.47,
-   "ret_1yr_pct": 4.71,
+   "price": 37.39,
+   "as_of": "2026-09-25",
+   "ret_5d_pct": 0.62,
+   "ret_ytd_pct": 5.12,
+   "ret_1yr_pct": 9.14,
    "ytd_base_date": "2025-12-31",
-   "yr_base_date": "2025-09-18"
+   "yr_base_date": "2025-09-25"
   },
   "UE": {
-   "price": 20.01,
-   "as_of": "2026-09-18",
-   "ret_5d_pct": -2.72,
-   "ret_ytd_pct": 4.27,
-   "ret_1yr_pct": -3.61,
+   "price": 19.9,
+   "as_of": "2026-09-25",
+   "ret_5d_pct": -0.55,
+   "ret_ytd_pct": 3.7,
+   "ret_1yr_pct": -0.35,
    "ytd_base_date": "2025-12-31",
-   "yr_base_date": "2025-09-18"
+   "yr_base_date": "2025-09-25"
   },
   "IVT": {
-   "price": 30.82,
-   "as_of": "2026-09-18",
-   "ret_5d_pct": -3.26,
-   "ret_ytd_pct": 9.25,
-   "ret_1yr_pct": 3.22,
+   "price": 30.53,
+   "as_of": "2026-09-25",
+   "ret_5d_pct": -0.94,
+   "ret_ytd_pct": 8.22,
+   "ret_1yr_pct": 5.35,
    "ytd_base_date": "2025-12-31",
-   "yr_base_date": "2025-09-18"
+   "yr_base_date": "2025-09-25"
   },
   "ADC": {
-   "price": 68.05,
-   "as_of": "2026-09-18",
-   "ret_5d_pct": -4.46,
-   "ret_ytd_pct": -5.53,
-   "ret_1yr_pct": -4.87,
+   "price": 67.48,
+   "as_of": "2026-09-25",
+   "ret_5d_pct": -0.84,
+   "ret_ytd_pct": -6.32,
+   "ret_1yr_pct": -4.39,
    "ytd_base_date": "2025-12-31",
-   "yr_base_date": "2025-09-18"
+   "yr_base_date": "2025-09-25"
   },
   "SPG": {
-   "price": 205.32,
-   "as_of": "2026-09-18",
-   "ret_5d_pct": 0.24,
-   "ret_ytd_pct": 10.92,
-   "ret_1yr_pct": 14.01,
+   "price": 204.82,
+   "as_of": "2026-09-25",
+   "ret_5d_pct": -0.24,
+   "ret_ytd_pct": 10.65,
+   "ret_1yr_pct": 12.16,
    "ytd_base_date": "2025-12-31",
-   "yr_base_date": "2025-09-18"
+   "yr_base_date": "2025-09-25"
   },
   "MAC": {
-   "price": 22.63,
-   "as_of": "2026-09-18",
-   "ret_5d_pct": 0.09,
-   "ret_ytd_pct": 22.59,
-   "ret_1yr_pct": 27.49,
+   "price": 22.64,
+   "as_of": "2026-09-25",
+   "ret_5d_pct": 0.04,
+   "ret_ytd_pct": 22.64,
+   "ret_1yr_pct": 35.08,
    "ytd_base_date": "2025-12-31",
-   "yr_base_date": "2025-09-18"
+   "yr_base_date": "2025-09-25"
   },
   "CBL": {
-   "price": 54.34,
-   "as_of": "2026-09-18",
-   "ret_5d_pct": -0.71,
-   "ret_ytd_pct": 46.86,
-   "ret_1yr_pct": 71.96,
+   "price": 51.91,
+   "as_of": "2026-09-25",
+   "ret_5d_pct": -4.47,
+   "ret_ytd_pct": 40.3,
+   "ret_1yr_pct": 73.26,
    "ytd_base_date": "2025-12-31",
-   "yr_base_date": "2025-09-18"
+   "yr_base_date": "2025-09-25"
   },
   "SKT": {
-   "price": 35.8,
-   "as_of": "2026-09-18",
-   "ret_5d_pct": -1.57,
-   "ret_ytd_pct": 7.28,
-   "ret_1yr_pct": 5.89,
+   "price": 34.73,
+   "as_of": "2026-09-25",
+   "ret_5d_pct": -2.99,
+   "ret_ytd_pct": 4.08,
+   "ret_1yr_pct": 5.05,
    "ytd_base_date": "2025-12-31",
-   "yr_base_date": "2025-09-18"
+   "yr_base_date": "2025-09-25"
   },
   "AKR": {
-   "price": 19.28,
-   "as_of": "2026-09-18",
-   "ret_5d_pct": -2.48,
-   "ret_ytd_pct": -6.13,
-   "ret_1yr_pct": -5.35,
+   "price": 19.24,
+   "as_of": "2026-09-25",
+   "ret_5d_pct": -0.21,
+   "ret_ytd_pct": -6.33,
+   "ret_1yr_pct": -4.18,
    "ytd_base_date": "2025-12-31",
-   "yr_base_date": "2025-09-18"
+   "yr_base_date": "2025-09-25"
   },
   "NNN": {
-   "price": 41.55,
-   "as_of": "2026-09-18",
-   "ret_5d_pct": -5.29,
-   "ret_ytd_pct": 4.84,
-   "ret_1yr_pct": -1.73,
+   "price": 41.3,
+   "as_of": "2026-09-25",
+   "ret_5d_pct": -0.6,
+   "ret_ytd_pct": 4.21,
+   "ret_1yr_pct": -1.71,
    "ytd_base_date": "2025-12-31",
-   "yr_base_date": "2025-09-18"
+   "yr_base_date": "2025-09-25"
   },
   "EPRT": {
-   "price": 26.75,
-   "as_of": "2026-09-18",
-   "ret_5d_pct": -7.09,
-   "ret_ytd_pct": -9.81,
-   "ret_1yr_pct": -11.39,
+   "price": 26.53,
+   "as_of": "2026-09-25",
+   "ret_5d_pct": -0.82,
+   "ret_ytd_pct": -10.55,
+   "ret_1yr_pct": -9.95,
    "ytd_base_date": "2025-12-31",
-   "yr_base_date": "2025-09-18"
+   "yr_base_date": "2025-09-25"
   },
   "BNL": {
-   "price": 19.2,
-   "as_of": "2026-09-18",
-   "ret_5d_pct": -5.97,
-   "ret_ytd_pct": 10.54,
-   "ret_1yr_pct": 3.5,
+   "price": 18.91,
+   "as_of": "2026-09-25",
+   "ret_5d_pct": -1.51,
+   "ret_ytd_pct": 8.87,
+   "ret_1yr_pct": 5.58,
    "ytd_base_date": "2025-12-31",
-   "yr_base_date": "2025-09-18"
+   "yr_base_date": "2025-09-25"
   },
   "GTY": {
-   "price": 29.64,
-   "as_of": "2026-09-18",
-   "ret_5d_pct": -8.15,
-   "ret_ytd_pct": 8.29,
-   "ret_1yr_pct": 6.7,
+   "price": 28.66,
+   "as_of": "2026-09-25",
+   "ret_5d_pct": -3.31,
+   "ret_ytd_pct": 4.71,
+   "ret_1yr_pct": 8.19,
    "ytd_base_date": "2025-12-31",
-   "yr_base_date": "2025-09-18"
+   "yr_base_date": "2025-09-25"
   }
  },
  "errors": {},
