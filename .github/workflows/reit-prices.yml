@@ -43,3 +43,6 @@ jobs:
           git add rw_prices.json
           git commit -m "REIT price snapshot $(date -u +%Y-%m-%d) (Yahoo chart API via Actions)"
           git push
+
+# Schedule re-registered 2026-09-28: the 9/21 contents-API commit never armed the
+# Monday crons (zero scheduled runs on 9/28); re-pushed via git + disable/enable cycle.
