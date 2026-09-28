@@ -1,9 +1,9 @@
-Last ~7 days (since 9/14/26) + live pipeline; unchanged items carried forward from prior cycles.
+Last ~7 days (since 9/21/26) + live pipeline; unchanged items carried forward from prior cycles.
 
-FRESHNESS CHECK (cycle 7 run on 9/21/26):
-- Walmart: Carried forward (no new store openings/closings 9/15-9/21). Sumter SC NM reopened post-remodel 9/4/26 added to Recent. Pipeline unchanged.
-- Kroger: Carried forward — Flint Township MI (9/30/26) closure timing updated to "imminent." Owensboro Marketplace still "fall 2026" (no specific date). Q2 FY26 results (9/11/26) already current from prior cycle. Kroger Houston closures found in search were 2025 events (not 2026 new closures).
-- Publix: FRESHLY UPDATED — Elizabethtown KY (9/23/26) and Apopka FL (9/24/26) moved from Pipeline to Recent ("opening this week"). NEW pipeline additions: Owensboro KY (Gateway Commons, 10/3/26) and Florence KY (Farmview Commons, 58,817 sq ft, 10/7/26). RE Relevance updated with competitive Owensboro dynamic.
-- Whole Foods: FRESHLY UPDATED — Elk Grove CA (9/16/26) moved from Pipeline to Recent (confirmed opened). San Diego (9/23/26) updated to "opening in 2 days." Daily Shop updated to 8+ open.
-- Trader Joe's: FRESHLY UPDATED — Lafayette LA (1710 Camellia Blvd, 9/17/26) confirmed opened; added to Recent. Pipeline updated (Lafayette removed from upcoming list). Store count updated ~665+.
-- Wegmans: Carried forward — Charlotte Ballantyne (10/14/26) countdown updated to 23 days. No new activity.
+FRESHNESS CHECK (cycle 8 run on 9/28/26):
+- Walmart: FRESHLY UPDATED — Neighborhood Market Mesquite TX (9/23/26, 3100 E Cartwright Rd, 45K sq ft, 150+ jobs) confirmed opened; added to Recent. Sam's Club pipeline unchanged; no new club openings confirmed 9/22-9/28.
+- Kroger: FRESHLY UPDATED — Flint Township MI (Carman Plaza, 9/30/26) confirmed closing THIS Tuesday; updated from "imminent" to specific date. Pipeline: Delaware OH opening confirmation still pending ("early fall" per sources but no confirmed date). Canal Winchester remains "late fall 2026." Huntington WV Marketplace construction confirmed started ~Sep 2026 (new pipeline addition for 2027). Giant Eagle FTC review: no update found.
+- Publix: FRESHLY UPDATED — Elizabethtown KY (9/23/26 confirmed ✓) and Apopka FL (9/24/26 confirmed ✓) moved from "opening this week" to confirmed open. Owensboro KY Gateway Commons confirmed 10/3/26, 7 a.m., 3370 Hayden Rd, 50,325 sq ft + adj. Publix Liquors (140 workers); updated in Pipeline with address and sq ft. NEW: Second Owensboro KY location announced — Yellow Banks Square, Carter Rd/W. Parrish Ave, ~50,325 sq ft + adj. Publix Liquors, 150 workers, no open date. Florence KY (10/7/26) unchanged. Louisville-area pipeline (Richmond, Versailles, Bowling Green) confirmed via April 2026 lease announcements — already in tracker.
+- Whole Foods: FRESHLY UPDATED — Downtown San Diego (9/23/26 ✓) moved from "opening in 2 days" pipeline to Recent. Amazon Fresh/Amazon Go no-relaunch re-confirmed 9/28/26. Pipeline: Sarasota FL and Daily Shop leases unchanged.
+- Trader Joe's: Carried forward — no new openings confirmed 9/22-9/28. NEW pipeline addition: West Roxbury Boston MA (1999 Centre St, 10/30/26 confirmed).
+- Wegmans: Carried forward — Charlotte Ballantyne (10/14/26) countdown updated to 16 days. Store count and Pittsburgh pipeline unchanged.

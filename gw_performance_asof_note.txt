@@ -1,6 +1,6 @@
 Updated only when a grocer reports a new quarter; unchanged rows carried forward and labeled by source quarter.
 
-STATUS AS OF 9/21/26:
+STATUS AS OF 9/28/26:
 - Walmart (WMT): Q2 FY27 figures carried from 8/20/26 (most recent quarter) — next report Q3 FY27 ~Nov 19, 2026. No new quarter this cycle.
 - Kroger (KR): Q2 FY26 figures carried from 9/11/26 — next report Q3 FY26 ~Dec 2026. No new quarter this cycle.
 - Publix: Q2 2026 figures carried (~early Aug 2026 release) — next release ~Nov 2026 (Q3). Employee stock $19.60 as of 8/1/26; no new reset found this cycle.
