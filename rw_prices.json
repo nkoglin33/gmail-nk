@@ -1,6 +1,6 @@
 {
  "schema": "rw_prices/1",
- "generated_at_utc": "2026-10-05T19:20:24Z",
+ "generated_at_utc": "2026-10-05T19:48:43Z",
  "generated_by": "GitHub Actions workflow reit-prices.yml (Yahoo Finance chart API)",
  "covered_friday": "2026-10-02",
  "methodology": "Price = close on as_of (last trading day <= covered Friday); 5D = vs close one week earlier; YTD = vs last close of prior calendar year; 1-Yr = vs close ~365 days earlier. Source: Yahoo Finance chart API v8, daily closes.",
