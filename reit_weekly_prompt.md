@@ -43,8 +43,8 @@ If Nick tells you to add/remove a name or merge/split a segment in the future, t
 ### 1a. Price data — read `rw_prices.json` FIRST, Yahoo direct pull is the backup
 
 **Primary source: `rw_prices.json` in the repo root.** A GitHub Actions workflow
-(`.github/workflows/reit-prices.yml`, runs 10:30 and 11:40 UTC every Monday — before this
-routine fires) pulls all 19 tickers from the Yahoo Finance chart API on a network that can
+(`.github/workflows/reit-prices.yml`, runs Sat 02:17, Sun 12:17 and Mon 06:17/09:47/10:30/11:40 UTC —
+all before this routine fires; multiple slots because GitHub delays scheduled runs) pulls all 19 tickers from the Yahoo Finance chart API on a network that can
 actually reach it and commits the result. This run's sandbox proxy refuses CONNECT to
 `query1.finance.yahoo.com` ("Tunnel connection failed: 403 Forbidden") and has done so every
 Monday since 8/10/26 — so the file, not your own HTTP call, is the expected path.
@@ -342,3 +342,9 @@ Output a confirmation with the subject line, file sizes, and whether the incompl
 Commit all changed files (`rw_*.html`, the `*_note.txt`/`*_callout.txt` scratch files, `rw_output.html`) to the repo with a message summarizing the week's key data points — this repo is the persistence layer for "carry forward last week's figure" in Steps 1c/1d, so committing every run matters, not just for audit trail.
 
 Do NOT modify or regenerate `rw_prices.json` — it is written by the Actions snapshot workflow, not by this run. If `git push` is rejected because that workflow committed while you were running, `git pull --rebase` and push again rather than force-pushing over it.
+
+---
+
+## ONE-TIME NOTE FOR THIS RUN ONLY (2026-10-12) — remove after this run
+
+This is a corrected re-run of the Week of October 5, 2026 issue. The morning run shipped INCOMPLETE with stale October 2 prices because the Actions price snapshot had not landed before the routine fired; a fresh `rw_prices.json` (covered_friday 2026-10-09, complete, all 19 tickers, generated 2026-10-12T14:46Z) is now committed. Rebuild the full report for the week of October 5–9, 2026 using that snapshot: refresh the heatmap Price/5D/YTD/1-Yr (5D = Oct 2→9), re-derive the quintile shading from the new figures, clear the INCOMPLETE banner and every stale-price sentence (including in This Week's Read, the segment table and Sources & Confidence), keep every other section's content current for the covered week, and append " (Corrected — supersedes earlier send)" to the Gmail draft subject.

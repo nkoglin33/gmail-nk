@@ -8,8 +8,18 @@ name: REIT Weekly price snapshot
 
 on:
   schedule:
+    # Multiple slots because GitHub delays/skips scheduled runs under load (10/5/26: both
+    # Monday crons fired ~8h late, at 19:19/19:43 UTC; 10/12/26: neither fired before the
+    # routine). The Friday close is final by Friday evening, so start Saturday and keep
+    # retrying through Monday morning. The commit step is a no-op when the file is unchanged.
+    # NOTE: never schedule on Friday — fetch_reit_prices.py treats a Friday run as covering
+    # the PRIOR Friday. Off-the-hour minutes reduce queue delay.
+    - cron: '17 2 * * 6'    # Sat 02:17 UTC (Fri 9:17pm CT) — first pull after the Friday close
+    - cron: '17 12 * * 0'   # Sun 12:17 UTC — retry
+    - cron: '17 6 * * 1'    # Mon 06:17 UTC — retry
+    - cron: '47 9 * * 1'    # Mon 09:47 UTC — retry
     - cron: '30 10 * * 1'   # 10:30 UTC Mon — 90 min before the routine
-    - cron: '40 11 * * 1'   # 11:40 UTC Mon — retry/refresh if the first run was delayed
+    - cron: '40 11 * * 1'   # 11:40 UTC Mon — last refresh before the routine
   workflow_dispatch:
 
 permissions:

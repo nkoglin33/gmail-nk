@@ -39,7 +39,7 @@ CONNECT to `query1.finance.yahoo.com` ("Tunnel connection failed: 403 Forbidden"
 consecutive Monday runs (Aug 10, Aug 24, Sep 7, Sep 14, Sep 21, 2026) — every one of those issues shipped
 with the heatmap's 19 prices and returns carried forward from Aug 7 closes under the INCOMPLETE banner.
 
-Fix: collect the data where Yahoo *is* reachable. The Actions workflow runs 10:30 and 11:40 UTC every
+Fix: collect the data where Yahoo *is* reachable. The Actions workflow runs Sat 02:17, Sun 12:17 and Mon 06:17/09:47/10:30/11:40 UTC (six slots, because GitHub delays scheduled runs; 10/5 and 10/12/26 both missed the routine on the two-slot schedule) every
 Monday (the routine fires at 12:00 UTC), pulls all 19 tickers, and commits `rw_prices.json` — Price, 5D,
 YTD, 1-Yr per ticker on one consistent methodology, plus `covered_friday`, `as_of` and a `complete` flag.
 Step 1a of `reit_weekly_prompt.md` reads that file first and validates `covered_friday` against the week
