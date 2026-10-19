@@ -1,14 +1,14 @@
-Last ~7 days (since 10/5/26) + live pipeline; unchanged items carried forward from prior cycles.
+Last ~7 days (since 10/12/26) + live pipeline; unchanged items carried forward from prior cycles.
 
-FRESHNESS CHECK (cycle 10 run on 10/12/26):
-- Walmart: MINOR UPDATE — Carolina Shores NC Supercenter updated to note construction underway per Q2 2026 area coverage; confirmed for 2026 but no specific open date. No new WMT or Sam's Club openings confirmed in the 10/6-10/12 window. Rest carried forward.
-- Kroger: MINOR UPDATE — Owensboro KY deadline language sharpened (East 4th close deadline <4 weeks away; Marketplace still no date). Canal Winchester "late fall 2026" unchanged. No new confirmed openings this cycle.
-- Publix: FRESHLY UPDATED — Florence KY (10/7/26 ✓) confirmed opened as 10th KY store; moved from pipeline to Recent. October wave of 6 upcoming openings added to pipeline (Summerville SC + Hinesville GA 10/15, Fayetteville NC 10/21, Tampa FL 10/23, Calabash NC 10/28, Bainbridge GA 10/29, Palm Bay FL rebuild 10/30). Independence NKY (4th NKY) and Hebron NKY (5th NKY) added to pipeline. Palm Bay FL closure (7/11/26) noted as rebuild opening 10/30.
-- Whole Foods: FRESHLY UPDATED — LA Bloom on Third flagship (63,082 sq ft, Nov 11 2026) added to pipeline per WFM press release 10/8/26. Amazon Fresh/Go no-relaunch re-confirmed 10/12/26. No new Daily Shop openings.
-- Trader Joe's: FRESHLY UPDATED — Herriman UT (10/9/26 ✓) confirmed opened; moved from pipeline to Recent (Utah's 8th store, first west of I-15 in Salt Lake County). West Jordan UT added to pipeline (no date). Store count updated to ~666+.
-- Wegmans: MINOR UPDATE — Charlotte Ballantyne countdown updated to 2 days (opens 10/14/26, Wednesday). No other changes.
+FRESHNESS CHECK (cycle 11 run on 10/19/26):
+- Walmart: NO CHANGE — no new WMT or Sam's Club openings confirmed in the 10/13-10/19 window. Carried forward.
+- Kroger: MINOR UPDATE — Owensboro KY deadline sharpened to "<3 weeks away"; Marketplace still no open date. Giant Eagle FTC status still pending (no new filing confirmed). No new openings.
+- Publix: CORRECTION + UPDATE — Removed "Summerville SC & Hinesville GA (10/15)" from 2026 pipeline; confirmed those were Oct 15, 2025 openings per Publix press releases. Pipeline updated with confirmed Oct 2026 wave: Bradenton FL (10/22), Fayetteville NC (10/21), Tampa FL (10/23), Independence KY (10/28), Calabash NC (10/28), Bainbridge GA (10/29), Palm Bay FL rebuild (10/30). No new openings this window.
+- Whole Foods: FRESHLY UPDATED — Scottsdale AZ store (38,158 sq ft, Nov 12 2026) added to pipeline per WFM press release 10/15/26. Amazon Fresh/Go no-relaunch re-confirmed 10/19/26.
+- Trader Joe's: MINOR UPDATE — Anaheim Hills CA now confirmed "Coming Soon" on TJ's website; no open date. Carried forward otherwise.
+- Wegmans: FRESHLY UPDATED — Charlotte Ballantyne (10/14/26 ✓) moved from pipeline to Recent; 115th store confirmed per Shelby Report 10/13/26. Holly Springs NC and Cranberry Township PA remain in pipeline.
 
 STALE-CONTENT FLAGS (items not refreshed for >2 weeks):
-- Kroger Owensboro KY Marketplace open date: still no confirmed date as of this cycle. East 4th St. closes on/before 11/4; monitoring urgently.
-- Whole Foods Daily Shop Murray Hill NYC (509 Third Ave): lease signed, no open date — no new update found.
-- Trader Joe's West Jordan UT: newly added to pipeline; no confirmed date or details beyond KSL mention.
+- Kroger Owensboro KY Marketplace: still no confirmed open date as of 10/19/26. East 4th St. closes on/before 11/4/26 — monitoring critically.
+- Whole Foods Daily Shop pipeline (Murray Hill NYC, Boston, Chicago, Philly): lease-signed, no open dates found this cycle.
+- Trader Joe's West Jordan UT, Farmington Hills MI, Syracuse NY, Yonkers NY: pipeline items with no confirmed dates or details.
